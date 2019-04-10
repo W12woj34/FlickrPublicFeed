@@ -54,26 +54,10 @@ class AddActivity : AppCompatActivity() {
     private fun addImageButton() {
         if (!checkIfEmpty()) {
             val dateText = imageDateCheck.text.toString()
-            val tagString = imageTagsEdit.text.toString()
-            val tags = ArrayList<String>()
-            var tag = ""
-            for (i: Char in tagString) {
-                if (i == ';') {
-                    tags.add(tag)
-                    tag = ""
-                } else {
-                    tag += i
-                }
-            }
-            if (tag.isNotEmpty()) {
-                tags.add(tag)
-            }
-
-
 
             val result = Record(
                 imageURLEdit.text.toString(),
-                imageNameEdit.text.toString(), tags, dateText
+                imageNameEdit.text.toString(), dateText
             )
 
             Toast.makeText(this, "Added!", Toast.LENGTH_LONG).show()
@@ -99,21 +83,12 @@ class AddActivity : AppCompatActivity() {
             error = true
         }
 
-        if (imageTagsEdit.text.isBlank()) {
-            imageTagsEditError()
-            error = true
-        }
-
         if (imageDateCheck.text.isBlank()) {
             imageDateCheckError()
             error = true
         }
 
         return error
-    }
-
-    private fun imageTagsEditError() {
-        imageTagsEdit.error = "Give correct tags!"
     }
 
     private fun imageNameEditError() {

@@ -1,11 +1,16 @@
 package com.example.flickrpublicfeed
 
+import android.graphics.Bitmap
+import android.graphics.drawable.Drawable
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.google.firebase.ml.vision.FirebaseVision
+import com.google.firebase.ml.vision.common.FirebaseVisionImage
 import com.squareup.picasso.Picasso
 
 class ImageAdapter(private val items: ArrayList<Record>) : RecyclerView.Adapter<ImageAdapter.ViewHolder>() {
@@ -26,12 +31,24 @@ class ImageAdapter(private val items: ArrayList<Record>) : RecyclerView.Adapter<
 
         holder.date.text = record.date
         holder.name.text = record.name
-        holder.tags.text = getTags(record.tags)
         Picasso.get().isLoggingEnabled = true
-        Picasso.get().load(record.imageURL).placeholder(R.drawable.placeholder).error(R.drawable.errorplaceholder).into(holder.image)
+        Picasso.get().load(record.imageURL).placeholder(R.drawable.placeholder).error(R.drawable.errorplaceholder)
+            .into(object : com.squareup.picasso.Target {
+                override fun onBitmapLoaded(bitmap: Bitmap, from: Picasso.LoadedFrom) {
+                    holder.image.setImageBitmap(bitmap)
+                    getTags(bitmap, holder.tags)
+                }
+
+                override fun onPrepareLoad(placeHolderDrawable: Drawable?) {
+                    //not implemented bcs not needed
+                }
+                override fun onBitmapFailed(e: Exception?, errorDrawable: Drawable?) {
+                    //not implemented bcs not needed
+                }
+            })
+
 
     }
-
 
 
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
@@ -48,23 +65,25 @@ class ImageAdapter(private val items: ArrayList<Record>) : RecyclerView.Adapter<
         notifyItemRemoved(position)
     }
 
-    private fun getTags(tags: ArrayList<String>): CharSequence? {
-        var result = ""
-        return when {
-            tags.size == 0 -> result
-            tags.size == 1 -> {
-                result = tags[0]
-                result
-            }
-            tags.size == 2 -> {
-                result = tags[0] + "; " + tags[1]
-                result
-            }
-            else -> {
-                result = tags[0] + "; " + tags[1] + "; " + tags[2]
-                result
-            }
-        }
+    private fun getTags(bitmap: Bitmap, view: TextView) {
 
+        bitmap.apply {
+            val vision = FirebaseVisionImage.fromBitmap(this)
+            val labeler = FirebaseVision.getInstance().onDeviceImageLabeler
+            labeler.processImage(vision)
+                .addOnSuccessListener {
+                    val tags = it.map { it.text }
+                    setTags(tags.take(3), view)
+                    Log.d("LAB", it.map { it.text }.joinToString(" "))
+                }
+                .addOnFailureListener {
+                    Log.wtf("LAB", it.message)
+                }
+        }
+    }
+
+    private fun setTags(tags: List<String>, view: TextView){
+        val result = tags.joinToString(", ")
+        view.text = result
     }
 }
