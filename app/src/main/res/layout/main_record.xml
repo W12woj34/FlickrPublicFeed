@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/history_record">
+
+    <View
+            android:id="@+id/divider"
+            android:layout_height="@dimen/FPF_DIVIDER_HEIGHT"
+            android:background="@android:color/black"
+            android:visibility="visible"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="@dimen/FPF_DIVIDER_MARGIN"
+            android:layout_width="@dimen/FPF_WIDTH_MATCH"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginEnd="@dimen/FPF_DIVIDER_MARGIN"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:backgroundTint="@android:color/black"
+    />
+    <ImageView
+            android:layout_width="@dimen/FPF_WIDTH_MATCH"
+            android:layout_height="@dimen/FPF_HEIGHT_MATCH" tools:srcCompat="@tools:sample/backgrounds/scenic"
+            app:layout_constraintTop_toTopOf="parent"
+            android:id="@+id/mainImage"
+            app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="@dimen/FPF_MARGIN_START"
+            app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="@dimen/FPF_MARGIN_END"
+            android:layout_marginTop="@dimen/FPF_MARGIN_TOP"
+            android:scaleType="centerCrop" android:layout_marginBottom="@dimen/FPF_MARGIN_BOTTOM"
+            app:layout_constraintBottom_toTopOf="@+id/guideline"
+            android:contentDescription="@string/FPF_RECORD_IMAGE_DESC"/>
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/mainDate" app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginEnd="@dimen/FPF_MARGIN_END"
+            tools:text="@string/FPF_RECORD_DATA_SAMPLE"
+            android:textSize="18sp" android:layout_marginTop="@dimen/FPF_MARGIN_TOP"
+            app:layout_constraintTop_toTopOf="@+id/guideline"/>
+    <androidx.constraintlayout.widget.Guideline
+            android:orientation="horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:id="@+id/guideline"
+            app:layout_constraintGuide_percent="0.75"/>
+    <TextView
+            android:layout_width="@dimen/FPF_WIDTH_MATCH"
+            android:layout_height="wrap_content"
+            android:id="@+id/mainName"
+            tools:text="@string/FPF_RECORD_IMAGE_SAMPLE"
+            app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="@dimen/FPF_MARGIN_START"
+            android:layout_marginTop="@dimen/FPF_MARGIN_TOP" android:textSize="18sp"
+            app:layout_constraintTop_toTopOf="@+id/guideline"
+            android:layout_marginEnd="@dimen/FPF_MARGIN_END" app:layout_constraintEnd_toStartOf="@+id/mainDate"/>
+    <TextView
+            android:text="@string/FPF_RECORD_TAG_SAMPLE"
+            android:layout_width="@dimen/FPF_WIDTH_MATCH"
+            android:layout_height="wrap_content"
+            android:id="@+id/mainTags"
+            app:layout_constraintTop_toBottomOf="@+id/mainName" android:layout_marginBottom="@dimen/FPF_MARGIN_BOTTOM"
+            app:layout_constraintBottom_toBottomOf="parent" android:layout_marginTop="@dimen/FPF_MARGIN_TOP"
+            app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="@dimen/FPF_MARGIN_START"
+            app:layout_constraintEnd_toStartOf="@+id/mainDate" android:layout_marginEnd="@dimen/FPF_MARGIN_END"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

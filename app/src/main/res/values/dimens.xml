@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="FPF_MARGIN_END">8dp</dimen>
+    <dimen name="FPF_MARGIN_BOTTOM">8dp</dimen>
+    <dimen name="FPF_MARGIN_START">8dp</dimen>
+    <dimen name="FPF_MARGIN_TOP">8dp</dimen>
+    <dimen name="FPF_WIDTH_MATCH">0dp</dimen>
+    <dimen name="FPF_HEIGHT_MATCH">0dp</dimen>
+    <dimen name="FPF_DIVIDER_HEIGHT">1dp</dimen>
+    <dimen name="FPF_DIVIDER_MARGIN">4dp</dimen>
+</resources>

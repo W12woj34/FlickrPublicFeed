@@ -1,0 +1,35 @@
+{
+  "project_info": {
+    "project_number": "402031069620",
+    "firebase_url": "https://flickr-public-feed-240de.firebaseio.com",
+    "project_id": "flickr-public-feed-240de",
+    "storage_bucket": "flickr-public-feed-240de.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:402031069620:android:084a0ed3a4cd1e3a",
+        "android_client_info": {
+          "package_name": "com.example.flickrpublicfeed"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDgKEBhHKBPgJo2EvD0WO0ewKO7Qh_2ZYQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "402031069620-ej8rnq7u41cir0e02k732bm4pqv6pqse.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

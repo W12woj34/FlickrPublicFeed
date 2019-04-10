@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+
+<resources>
+
+    <string name="app_name">Flickr Public Feed</string>
+
+    <string name="FPF_RECORD_IMAGE_SAMPLE">Super fajny obrazek</string>
+
+    <string name="FPF_RECORD_TAG_SAMPLE">super, fajny, obrazek</string>
+
+    <string name="FPF_RECORD_IMAGE_DESC">Main image</string>
+
+    <string name="FPF_RECORD_DATA_SAMPLE">12.12.2019</string>
+
+    <string name="FPF_MENU_ADD">add record</string>
+
+    <string name="FPF_ADD_URL">Image URL</string>
+
+    <string name="FPF_ADD_NAME">Image Name</string>
+
+    <string name="FPF_ADD_BUTTON">Add</string>
+
+    <string name="FPF_ADD_TAGS">Tags, separated with ; without space</string>
+    <string name="FPF_ADD_DATE">Date</string>
+
+</resources>
