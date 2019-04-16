@@ -51,6 +51,21 @@ class MainActivity : AppCompatActivity() {
         return super.onOptionsItemSelected(item)
     }
 
+    override fun onSaveInstanceState(outState: Bundle?) {
+        super.onSaveInstanceState(outState)
+        outState?.putParcelableArrayList(KEY_FPF_RECORDS_INTENT, records)
+
+    }
+
+    override fun onRestoreInstanceState(savedInstanceState: Bundle?) {
+        super.onRestoreInstanceState(savedInstanceState)
+        if (savedInstanceState != null) {
+            records = savedInstanceState.getParcelableArrayList(KEY_FPF_RECORDS_INTENT)
+            mainView.adapter = ImageAdapter(records)
+        }
+
+    }
+
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         if (data != null && resultCode == RESULT_OK && requestCode == KEY_FPF_CONTACT_REQUEST) {
             records.add(data.getParcelableExtra(KEY_FPF_RECEIVE))
@@ -61,9 +76,10 @@ class MainActivity : AppCompatActivity() {
     }
 
     companion object {
+        const val KEY_FPF_RECORDS_INTENT = "KEY_FPF_RECORDS_INTENT"
         const val KEY_FPF_ADD = "KEY_FPF_ADD_RECORDS"
         const val KEY_FPF_RECEIVE = "KEY_FPF_RECEIVE_RECORDS"
-        const val KEY_FPF_CONTACT_REQUEST = 99
+        const val KEY_FPF_CONTACT_REQUEST = 1337
     }
 
 }

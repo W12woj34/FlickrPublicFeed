@@ -40,10 +40,10 @@ class ImageAdapter(private val items: ArrayList<Record>) : RecyclerView.Adapter<
                 }
 
                 override fun onPrepareLoad(placeHolderDrawable: Drawable?) {
-                    //not implemented bcs not needed
+                    holder.image.setImageDrawable(placeHolderDrawable)
                 }
                 override fun onBitmapFailed(e: Exception?, errorDrawable: Drawable?) {
-                    //not implemented bcs not needed
+                    holder.image.setImageDrawable(errorDrawable)
                 }
             })
 

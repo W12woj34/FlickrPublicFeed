@@ -27,7 +27,7 @@
             app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="@dimen/FPF_MARGIN_START"
             app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="@dimen/FPF_MARGIN_END"
             android:layout_marginTop="@dimen/FPF_MARGIN_TOP"
-            android:scaleType="centerCrop" android:layout_marginBottom="@dimen/FPF_MARGIN_BOTTOM"
+            android:scaleType="fitCenter" android:layout_marginBottom="@dimen/FPF_MARGIN_BOTTOM"
             app:layout_constraintBottom_toTopOf="@+id/guideline"
             android:contentDescription="@string/FPF_RECORD_IMAGE_DESC"/>
     <TextView
