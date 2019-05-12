@@ -23,4 +23,7 @@
     <string name="FPF_ADD_TAGS">Tags, separated with ; without space</string>
     <string name="FPF_ADD_DATE">Date</string>
 
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
 </resources>

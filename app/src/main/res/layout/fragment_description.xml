@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                                                   xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:tools="http://schemas.android.com/tools"
+             android:layout_width="match_parent"
+             android:layout_height="match_parent"
+             tools:context=".fragments.Description">
+
+            android:layout_height="match_parent">
+
+    <TextView
+            android:text="Name: "
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/NameView" android:layout_marginTop="8dp" app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="8dp"
+            android:textSize="18sp"/>
+    <TextView
+            android:text="Tags: "
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/TagsView" android:layout_marginTop="8dp"
+            app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="8dp"
+            android:textSize="18sp"
+            app:layout_constraintTop_toBottomOf="@+id/NameSetView"/>
+    <TextView
+            android:text="Date: "
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/DateView" android:layout_marginTop="8dp"
+            app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="8dp"
+            android:textSize="18sp"
+            app:layout_constraintTop_toBottomOf="@+id/TagsSetView"/>
+    <TextView
+            android:text="TextView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/NameSetView" app:layout_constraintStart_toEndOf="@+id/NameView"
+            android:layout_marginStart="8dp" app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="8dp"
+            android:layout_marginTop="8dp" app:layout_constraintTop_toTopOf="parent" android:textSize="18sp"/>
+    <TextView
+            android:text="TextView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/TagsSetView"
+            app:layout_constraintStart_toEndOf="@+id/TagsView"
+            android:layout_marginStart="8dp" app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="8dp"
+            app:layout_constraintHorizontal_bias="0.4" android:layout_marginTop="8dp"
+            app:layout_constraintTop_toBottomOf="@+id/NameSetView" android:textSize="18sp"/>
+    <TextView
+            android:text="TextView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/DateSetView"
+            app:layout_constraintStart_toEndOf="@+id/DateView"
+            android:layout_marginStart="8dp" app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="8dp"
+            app:layout_constraintHorizontal_bias="1.0" android:layout_marginTop="8dp"
+            app:layout_constraintTop_toBottomOf="@+id/TagsSetView" android:textSize="18sp"/>
+</androidx.constraintlayout.widget.ConstraintLayout>
