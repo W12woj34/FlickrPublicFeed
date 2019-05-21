@@ -25,5 +25,15 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="FPF_CORRECT_MASS">Give correct name!</string>
+    <string name="FPF_CORRECT_URL">Give correct URL!</string>
+    <string name="FPF_CHOOSE_DATE">Choose date!</string>
+    <string name="FPF_DATE_FORMAT">dd.MM.yyyy</string>
+    <string name="FPF_ADD_TOAST_TEXT">Added!</string>
+    <string name="FPF_DELETE_COLOR">#f44336</string>
+    <string name="FPF_PLACEHOLDER_TEXTVIEW">TextView</string>
+    <string name="FPF_NAME">Name:</string>
+    <string name="FPF_TAGS">Tags:</string>
+    <string name="FPF_DATE">Date:</string>
 
 </resources>

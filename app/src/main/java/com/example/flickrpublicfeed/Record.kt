@@ -5,7 +5,7 @@ import kotlinx.android.parcel.Parcelize
 
 @Parcelize
 class Record(
-    val imageURL: String, val name: String, val date: String) : Parcelable
+    val imageURL: String, val name: String, val date: String, val tags: ArrayList<String>) : Parcelable
 
 
 

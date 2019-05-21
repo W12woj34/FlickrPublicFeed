@@ -1,63 +1,43 @@
 package com.example.flickrpublicfeed.fragments
 
 
+
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
+import androidx.fragment.app.Fragment
 import com.example.flickrpublicfeed.R
+import com.example.flickrpublicfeed.Record
 
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
-/**
- * A simple [Fragment] subclass.
- * Use the [Description.newInstance] factory method to
- * create an instance of this fragment.
- *
- */
 class Description : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+
+        val view = inflater.inflate(R.layout.fragment_description, container, false)
+        return view
     }
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_description, container, false)
-    }
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
 
+        val record= arguments?.getParcelable(FPF_KEY_RECORD_DESCRIPTION ) as Record
+        view.findViewById<TextView>(R.id.NameSetView).text = record.name
+        view.findViewById<TextView>(R.id.DateSetView).text = record.date
+        view.findViewById<TextView>(R.id.TagsSetView).text = record.tags.joinToString(", ")
+
+    }
 
     companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment Description.
-         */
-        // TODO: Rename and change types and number of parameters
+
+        private const val FPF_KEY_RECORD_DESCRIPTION = "FPF_KEY_RECORD_DESCRIPTION"
+
         @JvmStatic
-        fun newInstance(param1: String, param2: String) =
+        fun newInstance(item: Record) =
             Description().apply {
                 arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
+                    putParcelable(FPF_KEY_RECORD_DESCRIPTION , item)
                 }
             }
     }

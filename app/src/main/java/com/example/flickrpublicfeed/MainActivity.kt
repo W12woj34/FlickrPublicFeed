@@ -15,19 +15,14 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        addStartImages()
         setContentView(R.layout.activity_main)
 
         mainView.layoutManager = LinearLayoutManager(this)
         mainView.adapter = ImageAdapter(records)
 
-        val swipeHandler = object : SwipeToDeleteCallback(this) {
-            override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
-                val adapter = mainView.adapter as ImageAdapter
-                adapter.removeAt(viewHolder.adapterPosition)
-            }
-        }
-        val itemTouchHelper = ItemTouchHelper(swipeHandler)
-        itemTouchHelper.attachToRecyclerView(mainView)
+        setRecyclerViewItemSwipeListener()
+
     }
 
 
@@ -45,8 +40,8 @@ class MainActivity : AppCompatActivity() {
 
             val dataIntent = Intent(this, AddActivity::class.java)
             dataIntent.putParcelableArrayListExtra(KEY_FPF_ADD, records)
-                startActivityForResult(dataIntent, KEY_FPF_CONTACT_REQUEST)
-            }
+            startActivityForResult(dataIntent, KEY_FPF_CONTACT_REQUEST)
+        }
 
         return super.onOptionsItemSelected(item)
     }
@@ -73,6 +68,35 @@ class MainActivity : AppCompatActivity() {
         }
 
 
+    }
+
+    private fun setRecyclerViewItemSwipeListener() {
+        val swipeHandler = object : SwipeToDeleteCallback(this) {
+            override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
+                val adapter = mainView.adapter as ImageAdapter
+                adapter.deleteItem(viewHolder.adapterPosition)
+            }
+        }
+        val itemTouchHelper = ItemTouchHelper(swipeHandler)
+        itemTouchHelper.attachToRecyclerView(mainView)
+    }
+
+
+    private fun addStartImages() {
+        if (records.isEmpty()) {
+            records.add(Record("https://http.cat/404.jpg", "404", "11.11.2010", ArrayList()))
+            records.add(Record("https://http.cat/100.jpg", "100", "10.6.2016", ArrayList()))
+            records.add(Record("https://http.cat/101", "101", "2.3.2016", ArrayList()))
+            records.add(Record("https://http.cat/426", "426", "11.11.2019", ArrayList()))
+            records.add(Record("https://http.cat/429", "429", "11.7.2089", ArrayList()))
+            records.add(Record("https://http.cat/400", "400", "2.6.2013", ArrayList()))
+            records.add(Record("https://http.cat/202", "202", "13.21.2011", ArrayList()))
+            records.add(Record("https://http.cat/510", "510", "19.11.1991", ArrayList()))
+            records.add(Record("https://www.wykop.pl/cdn/c3201142/comment_UZV5a7PXQxXZsP0zdguaonrWU0bT2eRR.jpg", "Android Studio meme", "21.5.2019", ArrayList()))
+            records.add(Record("https://img.devrant.com/devrant/rant/r_651554_B2KTq.jpg", "XDD", "1.9.2018", ArrayList()))
+
+
+        }
     }
 
     companion object {
