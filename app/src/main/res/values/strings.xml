@@ -35,5 +35,6 @@
     <string name="FPF_NAME">Name:</string>
     <string name="FPF_TAGS">Tags:</string>
     <string name="FPF_DATE">Date:</string>
+    <string name="FPF_BIG_PICTURE_DESC">Big picture</string>
 
 </resources>

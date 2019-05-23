@@ -18,7 +18,6 @@
         <item name="android:shadowDx">1</item>
         <item name="android:shadowDy">1</item>
         <item name="android:shadowRadius">1</item>
-        <item name="android:fontFamily">@font/istok_web</item>
     </style>
 
 </resources>
